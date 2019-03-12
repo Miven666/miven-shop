@@ -18,10 +18,7 @@
         <mybatis.paginator.version>1.2.15</mybatis.paginator.version>
         <mysql.version>5.1.44</mysql.version>
 
-        <logback-ext-spring.version>0.1.4</logback-ext-spring.version>
-        <jul-to-slf4j.version>1.7.25</jul-to-slf4j.version>
-        <logstash-logback-encoder.version>4.11</logstash-logback-encoder.version>
-
+        <slf4j-api.version>1.7.25</slf4j-api.version>
 
         <fastjson.version>1.2.51</fastjson.version>
         <jackson.version>2.9.1</jackson.version>
@@ -112,21 +109,10 @@
             </dependency>
             <!-- 日志处理 -->
             <dependency>
-                <groupId>org.logback-extensions</groupId>
-                <artifactId>logback-ext-spring</artifactId>
-                <version>${logback-ext-spring.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.slf4j</groupId>
-                <artifactId>jul-to-slf4j</artifactId>
-                <version>${jul-to-slf4j.version}</version>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j-api.version}</version>
             </dependency>
-            <dependency>
-                <groupId>net.logstash.logback</groupId>
-                <artifactId>logstash-logback-encoder</artifactId>
-                <version>${logstash-logback-encoder.version}</version>
-            </dependency>
-
             <!-- Mybatis -->
             <dependency>
                 <groupId>org.mybatis</groupId>
