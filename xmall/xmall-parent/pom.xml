@@ -18,7 +18,7 @@
         <mybatis.paginator.version>1.2.15</mybatis.paginator.version>
         <mysql.version>5.1.44</mysql.version>
 
-        <slf4j-api.version>1.7.25</slf4j-api.version>
+        <slf4j-log4j12.version>1.8.0-beta2</slf4j-log4j12.version>
 
         <fastjson.version>1.2.51</fastjson.version>
         <jackson.version>2.9.1</jackson.version>
@@ -110,8 +110,8 @@
             <!-- 日志处理 -->
             <dependency>
                 <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-api</artifactId>
-                <version>${slf4j-api.version}</version>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${slf4j-log4j12.version}</version>
             </dependency>
             <!-- Mybatis -->
             <dependency>
