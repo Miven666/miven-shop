@@ -10,8 +10,10 @@ import java.util.concurrent.TimeUnit;
  */
 public class ThreadPoolUtil {
 
-    //线程缓冲队列
-    private static BlockingQueue<Runnable> bqueue = new ArrayBlockingQueue<Runnable>(100);
+    /**
+     * 线程缓冲队列
+     */
+    private static BlockingQueue<Runnable> bqueue = new ArrayBlockingQueue(100);
     // 核心线程数，会一直存活，即使没有任务，线程池也会维护线程的最少数量
     private static final int SIZE_CORE_POOL = 5;
     // 线程池维护线程的最大数量
