@@ -11,6 +11,7 @@
 
     <modules>
         <module>server-center</module>
+        <module>server-common</module>
     </modules>
 
     <parent>
