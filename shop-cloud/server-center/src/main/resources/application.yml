@@ -10,8 +10,6 @@ server:
 
 # spring
 spring:
-  profiles:
-    active: dev
   application:
     name: server-center
 
@@ -23,4 +21,4 @@ eureka:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/center/
+      defaultZone: http://${eureka.instance.hostname}:${server.port}${server.servlet.context-path}/eureka/
