@@ -3,7 +3,7 @@ package cn.exrick.front.exception;
 import cn.exrick.common.exception.XmallException;
 import cn.exrick.common.pojo.Result;
 import cn.exrick.common.utils.ResultUtil;
-import net.logstash.logback.encoder.org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
