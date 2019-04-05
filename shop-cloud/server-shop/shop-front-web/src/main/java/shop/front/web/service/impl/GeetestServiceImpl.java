@@ -5,13 +5,13 @@ import cn.miven.cloud.common.jedis.JedisClientPool;
 import cn.miven.cloud.common.util.StringEncodeUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import shop.front.web.manager.consumer.GeetestConsumer;
 import shop.front.web.pojo.Geetest;
 import shop.front.web.pojo.GeetestInit;
+import shop.front.web.properties.GeetestProperties;
 import shop.front.web.service.GeetestService;
 
 import java.util.Map;
@@ -31,30 +31,21 @@ public class GeetestServiceImpl implements GeetestService {
 
     private final static int CHALLENGE_LENGTH = 32;
 
-    /**
-     * 公钥
-     */
-    @Value("geetest.captchaId")
     private String captchaId;
 
-    /**
-     * 私钥
-     */
-    @Value("geetest.privateKey")
     private String privateKey;
 
-    /**
-     * 是否开启新的failBack
-     */
-    @Value("geetest.newFailBack")
     private boolean newFailBack;
 
     private JedisClient jedisClient = new JedisClientPool();
 
     private final GeetestConsumer geetestConsumer;
 
-    public GeetestServiceImpl(GeetestConsumer geetestConsumer) {
+    public GeetestServiceImpl(GeetestConsumer geetestConsumer, GeetestProperties geetestProperties) {
         this.geetestConsumer = geetestConsumer;
+        this.captchaId = geetestProperties.getCaptchaId();
+        this.privateKey = geetestProperties.getPrivateKey();
+        this.newFailBack = geetestProperties.isNewFailBack();
     }
 
     @Override

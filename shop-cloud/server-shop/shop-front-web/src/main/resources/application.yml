@@ -9,3 +9,9 @@ eureka:
 spring:
   application:
     name: shop-front-web
+
+
+# https://docs.spring.io/spring-boot/docs/2.1.3.RELEASE/reference/htmlsingle/#configuration-metadata-format
+geetest:
+  captchaId: 3db49959bbb8490edc2adb0af5b0d2e6
+  privateKey: 9d540015f27a68e3e8b76ea66eb53f36

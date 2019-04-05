@@ -10,8 +10,8 @@ import lombok.EqualsAndHashCode;
  * @date 2019/4/4
  */
 
-@EqualsAndHashCode(callSuper = true)
 @Data
+@EqualsAndHashCode(callSuper = true)
 public class GeetestInit extends Geetest{
 
     private int success;
