@@ -11,9 +11,9 @@ import java.security.NoSuchAlgorithmException;
  */
 public class StringEncodeUtils {
 
-    protected static char[] hexDigits = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
+    private static char[] hexDigits = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
 
-    public static MessageDigest messagedigest = null;
+    private static MessageDigest messagedigest = null;
 
     /**
      * 获取md5值
@@ -32,13 +32,12 @@ public class StringEncodeUtils {
     }
 
     private static String bufferToHex(byte[] bytes) {
-        return bufferToHex(bytes, 0, bytes.length);
+        return bufferToHex(bytes, bytes.length);
     }
 
-    private static String bufferToHex(byte[] bytes, int m, int n) {
+    private static String bufferToHex(byte[] bytes, int n) {
         StringBuffer stringbuffer = new StringBuffer(2 * n);
-        int k = m + n;
-        for (int l = m; l < k; l++) {
+        for (int l = 0; l < n; l++) {
             appendHexPair(bytes[l], stringbuffer);
         }
         return stringbuffer.toString();
