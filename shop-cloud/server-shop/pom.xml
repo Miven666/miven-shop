@@ -15,4 +15,11 @@
         <module>shop-front-web</module>
         <module>shop-common</module>
     </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+    </dependencies>
 </project>
