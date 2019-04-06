@@ -1,0 +1,15 @@
+server:
+  port: 8002
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8881/center/eureka/
+
+spring:
+  application:
+    name: shop-sso
+
+sso:
+  session:
+    expire: 1800
