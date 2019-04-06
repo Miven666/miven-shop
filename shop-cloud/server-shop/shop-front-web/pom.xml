@@ -18,7 +18,11 @@
             <artifactId>server-common</artifactId>
             <version>${project.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>cn.miven.spring</groupId>
+            <artifactId>shop-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
