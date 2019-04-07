@@ -1,5 +1,6 @@
 package shop.front.web.controller;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +11,7 @@ import shop.front.web.pojo.GeetestInit;
 import shop.front.web.service.GeetestService;
 import shop.front.web.manager.consumer.SsoConsumer;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 
 /**
@@ -21,15 +23,11 @@ import java.util.HashMap;
 
 @RestController
 public class MemberController {
+    @Resource
+    private GeetestService geetestService;
 
-    private final GeetestService geetestService;
-
-    private final SsoConsumer ssoConsumer;
-
-    public MemberController(GeetestService geetestService, SsoConsumer ssoConsumer) {
-        this.geetestService = geetestService;
-        this.ssoConsumer = ssoConsumer;
-    }
+    @Resource
+    private SsoConsumer ssoConsumer;
 
     @GetMapping("/member/geetestInit")
     public GeetestInit geetestInit() {
@@ -38,7 +36,15 @@ public class MemberController {
 
     @GetMapping("/member/checkLogin")
     public Result checkLogin(@RequestParam(defaultValue = "") String token){
-        Member member = ssoConsumer.getUserByToken(token);
+        Member member = new Member();
+        if (StringUtils.isEmpty(token)) {
+            member.setState(0);
+            member.setToken(token);
+            member.setMessage("token is empty");
+        } else {
+            member = ssoConsumer.getUserByToken(token);
+        }
+
         return new ResultUtils<Member>().setData(member);
     }
 }
