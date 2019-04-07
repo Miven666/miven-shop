@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 import shop.common.pojo.Member;
 import shop.sso.service.UserService;
 
+import javax.annotation.Resource;
+
 /**
  * 用户
  *
@@ -15,15 +17,11 @@ import shop.sso.service.UserService;
 
 @RestController
 public class UserController {
-
-    private final UserService userService;
-
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
+    @Resource
+    private UserService userService;
 
     @GetMapping("/user")
-    Member getUserByToken(@RequestParam String token) {
-        return null;
+    public Member getUserByToken(@RequestParam String token) {
+        return userService.getUserByToken(token);
     }
 }
