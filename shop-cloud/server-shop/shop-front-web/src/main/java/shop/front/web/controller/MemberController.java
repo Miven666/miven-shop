@@ -9,7 +9,7 @@ import shop.common.pojo.Result;
 import shop.common.util.ResultUtils;
 import shop.front.web.pojo.GeetestInit;
 import shop.front.web.service.GeetestService;
-import shop.front.web.manager.consumer.SsoConsumer;
+import shop.front.web.service.SsoService;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
@@ -27,7 +27,7 @@ public class MemberController {
     private GeetestService geetestService;
 
     @Resource
-    private SsoConsumer ssoConsumer;
+    private SsoService ssoService;
 
     @GetMapping("/member/geetestInit")
     public GeetestInit geetestInit() {
@@ -42,7 +42,7 @@ public class MemberController {
             member.setToken(token);
             member.setMessage("token is empty");
         } else {
-            member = ssoConsumer.getUserByToken(token);
+            member = ssoService.getUserByToken(token);
         }
 
         return new ResultUtils<Member>().setData(member);

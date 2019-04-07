@@ -15,6 +15,7 @@
         <module>shop-front-web</module>
         <module>shop-common</module>
         <module>shop-sso</module>
+        <module>shop-content</module>
     </modules>
 
     <dependencies>
