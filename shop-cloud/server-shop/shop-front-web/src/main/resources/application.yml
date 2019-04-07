@@ -10,6 +10,9 @@ spring:
   application:
     name: shop-front-web
 
+feign:
+  hystrix:
+    enabled: true
 
 # https://docs.spring.io/spring-boot/docs/2.1.3.RELEASE/reference/htmlsingle/#configuration-metadata-format
 geetest:
