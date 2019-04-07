@@ -1,0 +1,23 @@
+server:
+  port: 8003
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8881/center/eureka/
+
+spring:
+  application:
+    name: shop-content
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.48:3306/mshop?useSSL=false&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root123
+
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+
+panel:
+  id: 0
+  header: panel_header
