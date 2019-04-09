@@ -33,7 +33,8 @@ public class PanelContentServiceImpl implements PanelContentService {
     @Resource
     private PanelContentMapper panelContentMapper;
 
-    private JedisClient jedisClient = new JedisClientPool();
+    @Resource
+    private JedisClient jedisClient;
 
     @Override
     public List<TbPanelContent> getNavList() {

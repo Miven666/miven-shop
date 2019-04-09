@@ -1,4 +1,4 @@
-package shop.sso.config;
+package shop.content.config;
 
 import cn.miven.cloud.common.jedis.JedisClientPool;
 import org.slf4j.Logger;
