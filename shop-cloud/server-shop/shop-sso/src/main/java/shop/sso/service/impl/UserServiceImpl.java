@@ -8,6 +8,8 @@ import shop.common.pojo.Member;
 import shop.sso.properties.SessionProperties;
 import shop.sso.service.UserService;
 
+import javax.annotation.Resource;
+
 /**
  * @author mingzhi.xie
  * @date 2019/4/7
@@ -16,7 +18,8 @@ import shop.sso.service.UserService;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private JedisClient jedisClient = new JedisClientPool();
+    @Resource
+    private JedisClient jedisClient;
 
     private Integer expire;
 
