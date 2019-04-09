@@ -18,7 +18,6 @@ public class SsoHystrix implements SsoConsumer {
 
     @Override
     public Member getUserByToken(String token) {
-        // Add error log
         logger.error("FeignClient shop-sso getUserByToken is error.");
         Member member = new Member();
         member.setState(-1);

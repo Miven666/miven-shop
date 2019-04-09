@@ -14,12 +14,12 @@ import org.springframework.stereotype.Component;
 public class PanelProperties {
 
     /**
-     * 导航栏板块缓存key
-     */
-    private String header = "panel_header";
-
-    /**
      * 导航栏板块表id
      */
     private int id = 0;
+
+    /**
+     * 导航栏板块缓存key
+     */
+    private String header = "panel_header";
 }
