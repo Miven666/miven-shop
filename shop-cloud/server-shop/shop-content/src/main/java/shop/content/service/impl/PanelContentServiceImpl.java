@@ -1,7 +1,6 @@
 package shop.content.service.impl;
 
 import cn.miven.cloud.common.jedis.JedisClient;
-import cn.miven.cloud.common.jedis.JedisClientPool;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.slf4j.Logger;

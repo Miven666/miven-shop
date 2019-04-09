@@ -37,8 +37,7 @@
         select
         <if test="distinct">distinct</if>
             id, panel_id, type, product_id, sort_order, full_url, pic_url, pic_url2, pic_url3, created, updated from tb_panel_content
-            <if test="_parameter != null">
-        <include refid="Example_Where_Clause" /></if>
+        <if test="_parameter != null"><include refid="Example_Where_Clause" /></if>
         <if test="orderByClause != null">order by ${orderByClause}</if>
     </select>
 </mapper>
