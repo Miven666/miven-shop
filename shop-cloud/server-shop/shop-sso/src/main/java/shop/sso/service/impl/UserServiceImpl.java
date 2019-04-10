@@ -9,6 +9,7 @@ import shop.sso.properties.SessionProperties;
 import shop.sso.service.UserService;
 
 import javax.annotation.Resource;
+import java.util.Optional;
 
 /**
  * @author mingzhi.xie
@@ -29,8 +30,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Member getUserByToken(String token) {
-        String json = jedisClient.get("SESSION:" + token);
-        if (json == null) {
+        Optional<String> json = jedisClient.get("SESSION:" + token);
+        if (!json.isPresent()) {
             Member member = new Member();
             member.setState(0);
             member.setMessage("用户登录已过期");
@@ -38,6 +39,6 @@ public class UserServiceImpl implements UserService {
         }
         //重置过期时间
         jedisClient.expire("SESSION:" + token, expire);
-        return JSON.parseObject(json,Member.class);
+        return JSON.parseObject(json.get(),Member.class);
     }
 }

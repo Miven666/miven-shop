@@ -31,7 +31,7 @@ public class JedisClientPool implements JedisClient {
 	@Override
 	public Optional<String> set(String key, String value) {
 		try (Jedis jedis = jedisPool.getResource()) {
-            return Optional.of(jedis.set(key, value));
+            return Optional.ofNullable(jedis.set(key, value));
 		} catch (Exception e) {
 			logger.error("jedis set key='{}', value='{}' error", key, value, e);
             return Optional.empty();
@@ -41,7 +41,7 @@ public class JedisClientPool implements JedisClient {
 	@Override
 	public Optional<String> get(String key) {
 		try (Jedis jedis = jedisPool.getResource()) {
-		    return Optional.of(jedis.get(key));
+		    return Optional.ofNullable(jedis.get(key));
 		} catch (Exception e) {
 			logger.error("jedis get is error with key='{}'", key, e);
 			return Optional.empty();
@@ -51,7 +51,7 @@ public class JedisClientPool implements JedisClient {
 	@Override
 	public Optional<Boolean> exists(String key) {
 		try (Jedis jedis = jedisPool.getResource()) {
-			return Optional.of(jedis.exists(key));
+			return Optional.ofNullable(jedis.exists(key));
 		} catch (Exception e) {
 			logger.error("jedis exists is error with key='{}'", key, e);
 			return Optional.empty();
@@ -61,7 +61,7 @@ public class JedisClientPool implements JedisClient {
 	@Override
 	public Optional<Long> expire(String key, int seconds) {
 		try (Jedis jedis = jedisPool.getResource()) {
-			return Optional.of(jedis.expire(key, seconds));
+			return Optional.ofNullable(jedis.expire(key, seconds));
 		} catch (Exception e) {
 			logger.error("jedis expire is error with key='{}', seconds={}", key, seconds, e);
 			return Optional.empty();
@@ -71,7 +71,7 @@ public class JedisClientPool implements JedisClient {
 	@Override
 	public Optional<Long> ttl(String key) {
 		try (Jedis jedis = jedisPool.getResource()) {
-			return Optional.of(jedis.ttl(key));
+			return Optional.ofNullable(jedis.ttl(key));
 		} catch (Exception e) {
 			logger.error("jedis ttl is error with key='{}'", key, e);
 			return Optional.empty();
@@ -81,7 +81,7 @@ public class JedisClientPool implements JedisClient {
 	@Override
 	public Optional<Long> incr(String key) {
 		try (Jedis jedis = jedisPool.getResource()) {
-			return Optional.of(jedis.incr(key));
+			return Optional.ofNullable(jedis.incr(key));
 		} catch (Exception e) {
 			logger.error("jedis incr is error with key='{}'", key, e);
 			return Optional.empty();
@@ -91,7 +91,7 @@ public class JedisClientPool implements JedisClient {
 	@Override
 	public Optional<Long> hset(String key, String field, String value) {
 		try (Jedis jedis = jedisPool.getResource()) {
-			return Optional.of(jedis.hset(key, field, value));
+			return Optional.ofNullable(jedis.hset(key, field, value));
 		} catch (Exception e) {
 			logger.error("jedis hset is error with key='{}', field='{}', value='{}'", key, field, value, e);
 			return Optional.empty();
@@ -101,7 +101,7 @@ public class JedisClientPool implements JedisClient {
 	@Override
 	public Optional<String> hget(String key, String field) {
 		try (Jedis jedis = jedisPool.getResource()) {
-			return Optional.of(jedis.hget(key, field));
+			return Optional.ofNullable(jedis.hget(key, field));
 		} catch (Exception e) {
 			logger.error("jedis hget is error with key='{}', field='{}', value='{}'", key, field, e);
 			return Optional.empty();
@@ -111,7 +111,7 @@ public class JedisClientPool implements JedisClient {
 	@Override
 	public Optional<Long> hdel(String key, String... field) {
 		try (Jedis jedis = jedisPool.getResource()) {
-			return Optional.of(jedis.hdel(key, field));
+			return Optional.ofNullable(jedis.hdel(key, field));
 		} catch (Exception e) {
 			logger.error("jedis hdel is error with key='{}', field='{}'", key, field, e);
 			return Optional.empty();
@@ -121,7 +121,7 @@ public class JedisClientPool implements JedisClient {
 	@Override
 	public Optional<Boolean> hexists(String key, String field) {
 		try (Jedis jedis = jedisPool.getResource()) {
-			return Optional.of(jedis.hexists(key, field));
+			return Optional.ofNullable(jedis.hexists(key, field));
 		} catch (Exception e) {
 			logger.error("jedis hexists is error with key='{}', field='{}'", key, field, e);
 			return Optional.empty();
@@ -131,7 +131,7 @@ public class JedisClientPool implements JedisClient {
 	@Override
 	public Optional<List<String>> hvals(String key) {
 		try (Jedis jedis = jedisPool.getResource()) {
-			return Optional.of(jedis.hvals(key));
+			return Optional.ofNullable(jedis.hvals(key));
 		} catch (Exception e) {
 			logger.error("jedis hvals is error with key='{}'", key, e);
 			return Optional.empty();
@@ -141,7 +141,7 @@ public class JedisClientPool implements JedisClient {
 	@Override
 	public Optional<Long> del(String key) {
 		try (Jedis jedis = jedisPool.getResource()) {
-			return Optional.of(jedis.del(key));
+			return Optional.ofNullable(jedis.del(key));
 		} catch (Exception e) {
 			logger.error("jedis del is error with key='{}'", key, e);
 			return Optional.empty();

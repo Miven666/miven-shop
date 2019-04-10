@@ -15,6 +15,7 @@ import shop.content.service.PanelContentService;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * 面板内容
@@ -41,10 +42,11 @@ public class PanelContentServiceImpl implements PanelContentService {
         List<TbPanelContent> list;
 
         //有缓存则读取
-        String json = jedisClient.get(panelProperties.getHeader());
-        if(json != null){
+        Optional<String> json = jedisClient.get(panelProperties.getHeader());
+
+        if(json.isPresent()) {
             logger.info("读取了导航栏缓存");
-            return JSONObject.parseArray(json, TbPanelContent.class);
+            return JSONObject.parseArray(json.get(), TbPanelContent.class);
         }
 
         TbPanelContentExample exampleContent = new TbPanelContentExample();
@@ -56,9 +58,14 @@ public class PanelContentServiceImpl implements PanelContentService {
         list = panelContentMapper.selectByExample(exampleContent);
 
         //把结果添加至缓存
-        logger.info("添加了导航栏缓存");
         jedisClient.set(panelProperties.getHeader(), JSON.toJSONString(list));
+        logger.info("添加了导航栏缓存");
 
         return list;
+    }
+
+    @Override
+    public List<TbPanelContent> getHome() {
+        return null;
     }
 }
