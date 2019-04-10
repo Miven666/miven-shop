@@ -24,4 +24,10 @@ public class ContentHystrix implements ContentConsumer {
         logger.error("FeignClient shop-content getNavList is error.");
         return null;
     }
+
+    @Override
+    public List<TbPanelContent> getHome() {
+        logger.error("FeignClient shop-content getHome is error.");
+        return null;
+    }
 }

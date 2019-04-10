@@ -22,9 +22,21 @@ public class GoodsController {
     @Resource
     private ContentService contentService;
 
+    /**
+     * 获取导航栏
+     */
     @GetMapping("/goods/navList")
     public Result<List<TbPanelContent>> getNavList(){
-        List<TbPanelContent> list=contentService.getNavList();
+        List<TbPanelContent> list = contentService.getNavList();
+        return new ResultUtils<List<TbPanelContent>>().setData(list);
+    }
+
+    /**
+     * 首页内容展示
+     */
+    @GetMapping("/goods/home")
+    public Result<List<TbPanelContent>> getProductHome(){
+        List<TbPanelContent> list = contentService.getHome();
         return new ResultUtils<List<TbPanelContent>>().setData(list);
     }
 }

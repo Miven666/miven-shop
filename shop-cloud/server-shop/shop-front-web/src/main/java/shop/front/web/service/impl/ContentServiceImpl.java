@@ -24,4 +24,9 @@ public class ContentServiceImpl implements ContentService {
     public List<TbPanelContent> getNavList() {
         return contentConsumer.getNavList();
     }
+
+    @Override
+    public List<TbPanelContent> getHome() {
+        return contentConsumer.getHome();
+    }
 }
