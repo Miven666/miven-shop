@@ -16,6 +16,7 @@
         <module>server-config</module>
         <module>server-sleuth</module>
         <module>server-oss</module>
+        <module>server-gateway</module>
     </modules>
 
     <parent>
