@@ -16,6 +16,17 @@
   - [x] shop-sso : 商城搜索
 
 ## 所用技术
+- Spring
+- [SpringMVC](https://github.com/Miven666/note/blob/master/SpringMVC.md)
+- [SpringBoot](https://github.com/Miven666/SpringBoot-learing/blob/master/README.md)
+- [SpringCloud](https://github.com/Miven666/Spring-Cloud-Learning/blob/master/README.md)
+- [Mybatis]()
+- [Redis]()
+- [Elasticseearch]()
+- [Maven](https://github.com/Miven666/note/blob/master/Maven.md)
+- [Tomcat]()
+- [Nginx]()
+- [Docker]()
 
 ## 文档说明
 
