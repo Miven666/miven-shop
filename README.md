@@ -2,15 +2,20 @@
 [![AUR](https://img.shields.io/aur/license/yaourt.svg)](https://github.com/Miven666/M-shop/blob/master/LICENSE)  [![](https://img.shields.io/badge/Author-Miven-yellowgreen.svg)](https://blog.csdn.net/xie8409959)  [![](https://img.shields.io/badge/version-1.0-brightgreen.svg)](https://github.com/Miven666/M-shop)
 
 ## 基于[SpringCloud](https://github.com/spring-cloud)的微服务商城
+- 感谢[Exrick](https://github.com/Exrick)的基于SOA架构的分布式电商购物商城开源[xmall](https://github.com/Exrick/xmall)项目
 
-## 感谢[Exrick](https://github.com/Exrick)的开源[xmall](https://github.com/Exrick/xmall)项目基于SOA架构的分布式电商购物商城
+## 项目架构图
 
-## 项目架构及功能模块图
-
-## 新增
-
-## 优化
+## 模块功能
+- [x] server-center : 服务注册中心
+- [x] server-common : 服务通用模块
+- [x] server-shop : 商城服务
+  - [x] shop-common : 商城通用模块
+  - [x] shop-content : 商城内容服务
+  - [x] shop-front-web : 商城前端后台
+  - [x] shop-sso : 商城搜索
 
 ## 所用技术
 
-## 文档说明		
+## 文档说明
+
