@@ -13,6 +13,7 @@
         <module>server-center</module>
         <module>server-common</module>
         <module>server-shop</module>
+        <module>server-config</module>
     </modules>
 
     <parent>
