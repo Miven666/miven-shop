@@ -16,16 +16,16 @@
   - [x] shop-sso : 商城搜索
 
 ## 所用技术
-- Spring
+- [Spring]()
 - [SpringMVC](https://github.com/Miven666/note/blob/master/SpringMVC.md)
 - [SpringBoot](https://github.com/Miven666/SpringBoot-learing/blob/master/README.md)
 - [SpringCloud](https://github.com/Miven666/Spring-Cloud-Learning/blob/master/README.md)
-- [Mybatis]()
-- [Redis]()
-- [Elasticseearch]()
+- [Mybatis](https://github.com/Miven666/note/blob/master/Mybatis.md)
+- [Redis](https://github.com/Miven666/note/blob/master/Redis.md)
+- [Elasticseearch](https://github.com/Miven666/note/blob/master/Elasticsearch.md)
 - [Maven](https://github.com/Miven666/note/blob/master/Maven.md)
-- [Tomcat]()
-- [Nginx]()
+- [Tomcat](https://github.com/Miven666/note/blob/master/Tomcat.md)
+- [Nginx](https://github.com/Miven666/note/blob/master/Nginx.md)
 - [Docker]()
 
 ## 文档说明
