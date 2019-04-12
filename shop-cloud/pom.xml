@@ -15,6 +15,7 @@
         <module>server-shop</module>
         <module>server-config</module>
         <module>server-sleuth</module>
+        <module>server-oss</module>
     </modules>
 
     <parent>
