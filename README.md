@@ -8,12 +8,16 @@
 
 ## 模块功能
 - [x] server-center : 服务注册中心
+- [ ] server-config : 服务配置中心
+- [ ] server-sleuth : 服务链路追踪
+- [ ] server-oss    : 云存储服务
+- [ ] server-oss    : 网关服务
 - [x] server-common : 服务通用模块
-- [x] server-shop : 商城服务
-  - [x] shop-common : 商城通用模块
-  - [x] shop-content : 商城内容服务
-  - [x] shop-front-web : 商城前端后台
-  - [x] shop-sso : 商城搜索
+- [x] server-shop   : 商城服务
+  - [x] shop-common     : 商城通用模块
+  - [x] shop-content    : 商城内容服务
+  - [x] shop-front-web  : 商城前端后台
+  - [x] shop-sso        : 商城搜索
 
 ## 所用技术
 - [Spring]()
