@@ -29,5 +29,6 @@ public interface ContentConsumer {
      * 首页内容展示
      * @return 首页内容
      */
+    @GetMapping("/home")
     List<TbPanel> getHome();
 }
