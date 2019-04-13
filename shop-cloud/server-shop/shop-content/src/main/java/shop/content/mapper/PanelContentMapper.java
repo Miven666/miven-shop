@@ -1,8 +1,8 @@
 package shop.content.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import shop.common.pojo.TbPanelContent;
-import shop.common.pojo.TbPanelContentExample;
 
 import java.util.List;
 
@@ -15,8 +15,9 @@ public interface PanelContentMapper {
 
     /**
      * 获取导航栏
-     * @param exampleContent 样板
-     * @return 导航栏
+     * @param tbPanelContent    板块
+     * @param order             排序
+     * @return List<TbPanelContent>
      */
-    List<TbPanelContent> selectByExample(TbPanelContentExample exampleContent);
+    List<TbPanelContent> select(@Param("tbPanelContent") TbPanelContent tbPanelContent, @Param("order") String order);
 }

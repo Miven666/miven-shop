@@ -5,6 +5,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 /**
+ * 板块配置
+ *
  * @author mingzhi.xie
  * @date 2019/4/7
  */

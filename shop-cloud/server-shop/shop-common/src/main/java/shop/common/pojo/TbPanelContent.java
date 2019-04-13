@@ -44,4 +44,11 @@ public class TbPanelContent implements Serializable {
     private String productName;
 
     private String subTitle;
+
+    public TbPanelContent() {
+    }
+
+    public TbPanelContent(Integer panelId) {
+        this.panelId = panelId;
+    }
 }

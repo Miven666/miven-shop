@@ -16,10 +16,4 @@ public interface PanelContentService {
      * @return 导航栏
      */
     List<TbPanelContent> getNavList();
-
-    /**
-     * 首页内容展示
-     * @return 首页内容
-     */
-    List<TbPanelContent> getHome();
 }

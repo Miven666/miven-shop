@@ -6,9 +6,7 @@ import com.alibaba.fastjson.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import shop.common.pojo.Criteria;
 import shop.common.pojo.TbPanelContent;
-import shop.common.pojo.TbPanelContentExample;
 import shop.content.mapper.PanelContentMapper;
 import shop.content.properties.PanelProperties;
 import shop.content.service.PanelContentService;
@@ -41,31 +39,20 @@ public class PanelContentServiceImpl implements PanelContentService {
 
         List<TbPanelContent> list;
 
-        //有缓存则读取
+        // 有缓存则读取
         Optional<String> json = jedisClient.get(panelProperties.getHeader());
-
         if(json.isPresent()) {
             logger.info("读取了导航栏缓存");
             return JSONObject.parseArray(json.get(), TbPanelContent.class);
         }
 
-        TbPanelContentExample exampleContent = new TbPanelContentExample();
-        exampleContent.setOrderByClause("sort_order");
-        Criteria criteriaContent = exampleContent.createCriteria();
+        // 条件查询
+        list = panelContentMapper.select(new TbPanelContent(panelProperties.getId()), "sort_order");
 
-        //条件查询
-        criteriaContent.andPanelIdEqualTo(panelProperties.getId());
-        list = panelContentMapper.selectByExample(exampleContent);
-
-        //把结果添加至缓存
+        // 把结果添加至缓存
         jedisClient.set(panelProperties.getHeader(), JSON.toJSONString(list));
         logger.info("添加了导航栏缓存");
 
         return list;
-    }
-
-    @Override
-    public List<TbPanelContent> getHome() {
-        return null;
     }
 }

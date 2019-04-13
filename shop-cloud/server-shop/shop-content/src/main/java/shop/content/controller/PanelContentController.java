@@ -25,9 +25,4 @@ public class PanelContentController {
     public List<TbPanelContent> getNavList() {
         return panelContentService.getNavList();
     }
-
-    @GetMapping("/home")
-    public List<TbPanelContent> getHome() {
-        return panelContentService.getHome();
-    }
 }
