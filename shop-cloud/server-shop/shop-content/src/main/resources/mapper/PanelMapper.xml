@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="shop.content.mapper.PanelMapper">
+
+    <select id="select" resultType="shop.common.pojo.TbPanel">
+        select * from tb_panel where position = #{tbPanel.position} and status = #{tbPanel.status} order by #{order};
+    </select>
+</mapper>
