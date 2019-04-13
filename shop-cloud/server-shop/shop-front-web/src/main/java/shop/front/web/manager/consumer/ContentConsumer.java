@@ -2,6 +2,7 @@ package shop.front.web.manager.consumer;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import shop.common.pojo.TbPanel;
 import shop.common.pojo.TbPanelContent;
 import shop.front.web.manager.hystrix.ContentHystrix;
 
@@ -28,5 +29,5 @@ public interface ContentConsumer {
      * 首页内容展示
      * @return 首页内容
      */
-    List<TbPanelContent> getHome();
+    List<TbPanel> getHome();
 }

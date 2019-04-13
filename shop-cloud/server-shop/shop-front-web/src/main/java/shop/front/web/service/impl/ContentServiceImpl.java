@@ -1,6 +1,7 @@
 package shop.front.web.service.impl;
 
 import org.springframework.stereotype.Service;
+import shop.common.pojo.TbPanel;
 import shop.common.pojo.TbPanelContent;
 import shop.front.web.manager.consumer.ContentConsumer;
 import shop.front.web.service.ContentService;
@@ -26,7 +27,7 @@ public class ContentServiceImpl implements ContentService {
     }
 
     @Override
-    public List<TbPanelContent> getHome() {
+    public List<TbPanel> getHome() {
         return contentConsumer.getHome();
     }
 }

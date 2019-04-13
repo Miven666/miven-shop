@@ -3,6 +3,7 @@ package shop.front.web.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import shop.common.pojo.Result;
+import shop.common.pojo.TbPanel;
 import shop.common.pojo.TbPanelContent;
 import shop.common.util.ResultUtils;
 import shop.front.web.service.ContentService;
@@ -35,8 +36,8 @@ public class GoodsController {
      * 首页内容展示
      */
     @GetMapping("/goods/home")
-    public Result<List<TbPanelContent>> getProductHome(){
-        List<TbPanelContent> list = contentService.getHome();
-        return new ResultUtils<List<TbPanelContent>>().setData(list);
+    public Result<List<TbPanel>> getProductHome(){
+        List<TbPanel> list = contentService.getHome();
+        return new ResultUtils<List<TbPanel>>().setData(list);
     }
 }

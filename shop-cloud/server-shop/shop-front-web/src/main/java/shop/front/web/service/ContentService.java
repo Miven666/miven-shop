@@ -1,5 +1,6 @@
 package shop.front.web.service;
 
+import shop.common.pojo.TbPanel;
 import shop.common.pojo.TbPanelContent;
 
 import java.util.List;
@@ -21,5 +22,5 @@ public interface ContentService {
      * 首页内容展示
      * @return 首页内容
      */
-    List<TbPanelContent> getHome();
+    List<TbPanel> getHome();
 }
