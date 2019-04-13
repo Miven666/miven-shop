@@ -30,10 +30,12 @@
         </encoder>
     </appender>
 
-
     <root level="info">
         <appender-ref ref="CONSOLE" />
         <appender-ref ref="STASH" />
     </root>
 
+    <logger name="org.apache.ibatis" level="debug" additivity="false">
+        <appender-ref ref="CONSOLE" />
+    </logger>
 </configuration>
