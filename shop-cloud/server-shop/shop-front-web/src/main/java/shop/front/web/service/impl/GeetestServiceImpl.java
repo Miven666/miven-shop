@@ -1,10 +1,10 @@
 package shop.front.web.service.impl;
 
 import cn.miven.cloud.common.jedis.JedisClient;
-import cn.miven.cloud.common.jedis.JedisClientPool;
 import cn.miven.cloud.common.util.StringEncodeUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -37,15 +37,17 @@ public class GeetestServiceImpl implements GeetestService {
 
     private boolean newFailBack;
 
-    private JedisClient jedisClient = new JedisClientPool();
+    private final JedisClient jedisClient;
 
     private final GeetestConsumer geetestConsumer;
 
-    public GeetestServiceImpl(GeetestConsumer geetestConsumer, GeetestProperties geetestProperties) {
+    @Autowired
+    public GeetestServiceImpl(GeetestConsumer geetestConsumer, GeetestProperties geetestProperties, JedisClient jedisClient) {
         this.geetestConsumer = geetestConsumer;
         this.captchaId = geetestProperties.getCaptchaId();
         this.privateKey = geetestProperties.getPrivateKey();
         this.newFailBack = geetestProperties.isNewFailBack();
+        this.jedisClient = jedisClient;
     }
 
     @Override
