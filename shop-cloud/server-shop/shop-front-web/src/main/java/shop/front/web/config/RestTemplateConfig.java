@@ -1,5 +1,7 @@
 package shop.front.web.config;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,6 +24,8 @@ import java.util.List;
 @Configuration
 public class RestTemplateConfig {
 
+    private final static Logger logger = LoggerFactory.getLogger(RestTemplateConfig.class);
+
     @Resource
     private RestTemplateBuilder builder;
 
@@ -30,18 +34,18 @@ public class RestTemplateConfig {
      */
     @Bean
     public RestTemplate restTemplate() {
-        //先获取到converter列表
+        // 先获取到converter列表
         List<HttpMessageConverter<?>> converters = builder.build().getMessageConverters();
         for(HttpMessageConverter<?> converter : converters){
             if(converter instanceof MappingJackson2HttpMessageConverter){
                 try{
-                    //先将原先支持的MediaType列表拷出
+                    // 先将原先支持的MediaType列表拷出
                     List<MediaType> mediaTypeList = new ArrayList<>(converter.getSupportedMediaTypes());
-                    //加入对text/javascript的支持
+                    // 加入对text/javascript的支持
                     mediaTypeList.add(MediaType.parseMediaType("text/javascript"));
                     ((MappingJackson2HttpMessageConverter) converter).setSupportedMediaTypes(mediaTypeList);
                 }catch(Exception e){
-                    e.printStackTrace();
+                    logger.error("Add Content-Type:'text/javascript' is error", e);
                 }
             }
         }
