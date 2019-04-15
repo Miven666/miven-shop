@@ -11,7 +11,7 @@
 - [ ] server-config : 服务配置中心
 - [ ] server-sleuth : 服务链路追踪
 - [ ] server-oss    : 云存储服务
-- [ ] server-oss    : 网关服务
+- [ ] server-gateway: 网关服务
 - [x] server-common : 服务通用模块
 - [x] server-shop   : 商城服务
   - [x] shop-common     : 商城通用模块
