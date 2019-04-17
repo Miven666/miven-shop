@@ -74,7 +74,7 @@ public class GeetestServiceImpl implements GeetestService {
         String challenge;
         if (register.getBody() != null && register.getBody().getChallenge().length() == CHALLENGE_LENGTH) {
             challenge = register.getBody().getChallenge();
-            StringEncodeUtils.md5Encode(challenge + this.privateKey);
+            StringEncodeUtils.md5Encode(this.privateKey + SER_NAME + challenge);
             return registerOk(challenge);
         } else {
             logger.error("Geetest server register failed, challenge length is not 32");
@@ -92,6 +92,8 @@ public class GeetestServiceImpl implements GeetestService {
 
         GeetestInit geetestInit = new GeetestInit();
         geetestInit.setSuccess(1);
+        geetestInit.setGt(this.captchaId);
+        geetestInit.setNewCaptcha(this.newFailBack);
         geetestInit.setChallenge(challenge);
         geetestInit.setStatusKey(key);
 
