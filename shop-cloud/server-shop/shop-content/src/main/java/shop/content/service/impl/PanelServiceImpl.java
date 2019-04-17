@@ -47,17 +47,16 @@ public class PanelServiceImpl implements PanelService {
 
     @Override
     public List<TbPanel> getHome() {
-        List<TbPanel> panels;
-
         // 有缓存则读取
-        Optional<String> json = jedisClient.get(productProperties.getHome());
-        if(json.isPresent()) {
+        Optional<String> panelOpt = jedisClient.get(productProperties.getHome());
+        return panelOpt.map((value) -> {
             logger.info("读取了首页缓存");
-            return JSONObject.parseArray(json.get(), TbPanel.class);
-        }
+            return JSONObject.parseArray(value, TbPanel.class);
+        }).orElseGet(this::conditionSelect);
+    }
 
-        // 条件查询
-        panels = panelMapper.select(new TbPanel(0, 1), "sort_order");
+    private List<TbPanel> conditionSelect() {
+        List<TbPanel> panels = panelMapper.select(new TbPanel(0, 1), "sort_order");
         for (TbPanel tbPanel : panels) {
             List<TbPanelContent> contents = panelContentMapper.select(new TbPanelContent(tbPanel.getId()), "sort_order");
             for (TbPanelContent content : contents) {
