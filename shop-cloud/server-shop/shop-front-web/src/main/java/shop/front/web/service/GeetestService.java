@@ -14,6 +14,8 @@ public interface GeetestService {
 
     String VER_NAME = "4.0";
 
+    String SER_NAME = "geetest";
+
     String SDK_LANG = "java";
 
     String API_URL = "http://api.geetest.com";
