@@ -1,6 +1,7 @@
 package shop.common.util;
 
 import com.sun.istack.internal.Nullable;
+import org.springframework.util.Assert;
 
 /**
  * 前后端交互结果集状态
@@ -9,7 +10,14 @@ import com.sun.istack.internal.Nullable;
  * @date 2019/4/6
  */
 public enum ResultStatus {
+    /**
+     * 成功
+     */
     OK(200, "OK"),
+
+    /**
+     * 内部服务错误
+     */
     ERROR(500, "Internal Server Error"),
 
     ;
@@ -39,11 +47,8 @@ public enum ResultStatus {
 
     public static ResultStatus valueOf(int statusCode) {
         ResultStatus status = resolve(statusCode);
-        if (status == null) {
-            throw new IllegalArgumentException("No matching constant for [" + statusCode + "]");
-        } else {
-            return status;
-        }
+        Assert.notNull(status, "No matching constant for [" + statusCode + "]");
+        return status;
     }
 
     @Nullable
