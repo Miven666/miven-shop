@@ -12,7 +12,7 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class GeetestInit extends Geetest{
+public class GeetestInit extends Geetest {
 
     private int success;
 
