@@ -1,4 +1,4 @@
-package shop.front.web.manager.route;
+package shop.front.web.remote.route;
 
 /**
  * 路由地址

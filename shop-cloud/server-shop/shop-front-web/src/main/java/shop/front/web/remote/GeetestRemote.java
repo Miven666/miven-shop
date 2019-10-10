@@ -1,9 +1,9 @@
-package shop.front.web.manager.consumer;
+package shop.front.web.remote;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
-import shop.front.web.manager.route.UriRoute;
+import shop.front.web.remote.route.UriRoute;
 import shop.front.web.pojo.Geetest;
 
 import javax.annotation.Resource;
@@ -17,7 +17,7 @@ import java.util.Map;
  */
 
 @Component
-public class GeetestConsumer {
+public class GeetestRemote {
 
     @Resource
     private RestTemplate restTemplate;

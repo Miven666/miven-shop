@@ -1,10 +1,10 @@
-package shop.front.web.manager.consumer;
+package shop.front.web.remote;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import shop.common.pojo.TbPanel;
 import shop.common.pojo.TbPanelContent;
-import shop.front.web.manager.hystrix.ContentHystrix;
+import shop.front.web.remote.hystrix.ContentHystrix;
 
 import java.util.List;
 
@@ -16,7 +16,7 @@ import java.util.List;
  */
 
 @FeignClient(value = "shop-content", fallback = ContentHystrix.class)
-public interface ContentConsumer {
+public interface ContentRemote {
 
     /**
      * 获取导航栏

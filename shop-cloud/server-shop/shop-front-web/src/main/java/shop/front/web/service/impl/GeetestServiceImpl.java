@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import shop.front.web.manager.consumer.GeetestConsumer;
+import shop.front.web.remote.GeetestRemote;
 import shop.front.web.pojo.Geetest;
 import shop.front.web.pojo.GeetestInit;
 import shop.front.web.properties.GeetestProperties;
@@ -39,11 +39,11 @@ public class GeetestServiceImpl implements GeetestService {
 
     private final JedisClient jedisClient;
 
-    private final GeetestConsumer geetestConsumer;
+    private final GeetestRemote geetestRemote;
 
     @Autowired
-    public GeetestServiceImpl(GeetestConsumer geetestConsumer, GeetestProperties geetestProperties, JedisClient jedisClient) {
-        this.geetestConsumer = geetestConsumer;
+    public GeetestServiceImpl(GeetestRemote geetestRemote, GeetestProperties geetestProperties, JedisClient jedisClient) {
+        this.geetestRemote = geetestRemote;
         this.captchaId = geetestProperties.getCaptchaId();
         this.privateKey = geetestProperties.getPrivateKey();
         this.newFailBack = geetestProperties.isNewFailBack();
@@ -65,7 +65,7 @@ public class GeetestServiceImpl implements GeetestService {
         param.put("gt", this.captchaId);
         param.put("json_format", JSON_FORMAT);
 
-        ResponseEntity<Geetest> register = geetestConsumer.register(param);
+        ResponseEntity<Geetest> register = geetestRemote.register(param);
         if (register.getStatusCode() != HttpStatus.OK) {
             logger.error("Geetest server register failed, error http status code: {}", register.getStatusCode());
             return registerFail();
