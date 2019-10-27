@@ -35,7 +35,7 @@ public class MemberController {
     }
 
     @GetMapping("/member/checkLogin")
-    public Result checkLogin(@RequestParam(defaultValue = "") String token){
+    public Result<Member> checkLogin(@RequestParam(defaultValue = "") String token){
         Member member = new Member();
         if (StringUtils.isEmpty(token)) {
             member.setState(0);
