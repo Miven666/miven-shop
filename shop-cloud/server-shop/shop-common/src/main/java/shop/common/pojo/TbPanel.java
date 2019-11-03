@@ -46,4 +46,10 @@ public class TbPanel implements Serializable {
         this.position = position;
         this.status = status;
     }
+
+    public TbPanel(Integer id, Integer position, Integer status) {
+        this.id = id;
+        this.position = position;
+        this.status = status;
+    }
 }

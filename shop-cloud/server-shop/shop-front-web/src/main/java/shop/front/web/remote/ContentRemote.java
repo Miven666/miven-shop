@@ -13,6 +13,7 @@ import java.util.List;
  *
  * @author mingzhi.xie
  * @date 2019/4/7
+ * @since 1.0
  */
 
 @FeignClient(value = "shop-content", fallback = ContentHystrix.class)
@@ -31,4 +32,11 @@ public interface ContentRemote {
      */
     @GetMapping("/home")
     List<TbPanel> getHome();
+
+    /**
+     * 获取推荐商品
+     * @return 推荐商品集合
+     */
+    @GetMapping("/recommend")
+    List<TbPanel> getRecommendGoods();
 }

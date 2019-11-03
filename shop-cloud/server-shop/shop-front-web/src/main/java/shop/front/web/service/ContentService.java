@@ -10,6 +10,7 @@ import java.util.List;
  *
  * @author mingzhi.xie
  * @date 2019/4/7
+ * @since 1.0
  */
 public interface ContentService {
     /**
@@ -23,4 +24,10 @@ public interface ContentService {
      * @return 首页内容
      */
     List<TbPanel> getHome();
+
+    /**
+     * 获取推荐商品
+     * @return 推荐商品集合
+     */
+    List<TbPanel> getRecommendGoods();
 }

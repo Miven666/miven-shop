@@ -1,5 +1,6 @@
 package shop.front.web.controller;
 
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import shop.common.pojo.Result;
@@ -23,21 +24,24 @@ public class GoodsController {
     @Resource
     private ContentService contentService;
 
-    /**
-     * 获取导航栏
-     */
+    @ApiOperation("商品导航栏")
     @GetMapping("/goods/navList")
     public Result<List<TbPanelContent>> getNavList(){
         List<TbPanelContent> list = contentService.getNavList();
         return new ResultUtils<List<TbPanelContent>>().setData(list);
     }
 
-    /**
-     * 首页内容展示
-     */
+    @ApiOperation("商品首页板块")
     @GetMapping("/goods/home")
     public Result<List<TbPanel>> getProductHome(){
         List<TbPanel> list = contentService.getHome();
+        return new ResultUtils<List<TbPanel>>().setData(list);
+    }
+
+    @ApiOperation("商品推荐板块")
+    @GetMapping("/goods/recommend")
+    public Result<List<TbPanel>> getRecommendGoods(){
+        List<TbPanel> list = contentService.getRecommendGoods();
         return new ResultUtils<List<TbPanel>>().setData(list);
     }
 }

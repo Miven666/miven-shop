@@ -16,4 +16,10 @@ public interface PanelService {
      * @return 首页
      */
     List<TbPanel> getHome();
+
+    /**
+     * 推荐
+     * @return 推荐
+     */
+    List<TbPanel> getRecommendGoods();
 }

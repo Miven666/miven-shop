@@ -3,6 +3,18 @@
 <mapper namespace="shop.content.mapper.PanelMapper">
 
     <select id="select" resultType="shop.common.pojo.TbPanel">
-        select * from tb_panel where position = #{tbPanel.position} and status = #{tbPanel.status} order by #{order};
+        select * from tb_panel
+        <where>
+            <if test="#{tbPanel.id} != null">
+                and id = #{tbPanel.id}
+            </if>
+            <if test="#{tbPanel.position} != null">
+                and position = #{tbPanel.position}
+            </if>
+            <if test="#{tbPanel.position} != null">
+                and status = #{tbPanel.status}
+            </if>
+        </where>
+         order by #{order};
     </select>
 </mapper>

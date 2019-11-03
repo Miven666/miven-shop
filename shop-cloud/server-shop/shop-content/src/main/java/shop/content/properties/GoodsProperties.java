@@ -2,6 +2,7 @@ package shop.content.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.NestedConfigurationProperty;
 import org.springframework.stereotype.Component;
 
 /**
@@ -13,10 +14,11 @@ import org.springframework.stereotype.Component;
 
 @Data
 @Component
-@ConfigurationProperties(prefix = "product")
-public class ProductProperties {
+@ConfigurationProperties(prefix = "goods")
+public class GoodsProperties {
     /**
      *商城首页缓存key
      */
-    private String home = "product_home";
+    @NestedConfigurationProperty
+    private GoodsHomeProperties home;
 }
