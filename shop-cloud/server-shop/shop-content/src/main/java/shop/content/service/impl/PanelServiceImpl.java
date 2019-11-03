@@ -13,6 +13,7 @@ import shop.content.mapper.PanelContentMapper;
 import shop.content.mapper.PanelMapper;
 import shop.content.mapper.TbItemMapper;
 import shop.content.properties.GoodsHomeProperties;
+import shop.content.properties.GoodsProperties;
 import shop.content.properties.RecommendProperties;
 import shop.content.service.PanelService;
 
@@ -69,7 +70,12 @@ public class PanelServiceImpl implements PanelService {
     @Override
     public List<TbPanel> getRecommendGoods() {
         List<TbPanel> panels;
-
+        // 有缓存则读取
+        Optional<String> recommend = jedisClient.get(recommendProperties.getKey());
+        if(recommend.isPresent()) {
+            logger.info("读取了推荐栏缓存");
+            return JSONObject.parseArray(recommend.get(), TbPanel.class);
+        }
         // 条件查询
         panels = conditionSelect(new TbPanel(recommendProperties.getId(), null, 1));
         // 把结果添加至缓存
