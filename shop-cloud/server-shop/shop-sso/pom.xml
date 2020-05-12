@@ -18,18 +18,25 @@
             <artifactId>shop-common</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>miven.java</groupId>
+            <artifactId>miven-logging</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>miven.java</groupId>
+            <artifactId>miven-spring-boot-autoconfigure</artifactId>
+            <version>1.0</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
-
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
