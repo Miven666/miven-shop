@@ -2,8 +2,10 @@ package shop.front.web.service.impl;
 
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
+import shop.common.pojo.GoodsSortPage;
 import shop.common.pojo.TbPanel;
 import shop.common.pojo.TbPanelContent;
+import shop.common.pojo.DataPages;
 import shop.front.web.remote.ContentRemote;
 import shop.front.web.service.ContentService;
 
@@ -38,5 +40,10 @@ public class ContentServiceImpl implements ContentService {
     @Override
     public List<TbPanel> getRecommendGoods() {
         return contentRemote.getRecommendGoods();
+    }
+
+    @Override
+    public DataPages getGoodsPages(GoodsSortPage goods) {
+        return contentRemote.getGoodsPages(goods);
     }
 }

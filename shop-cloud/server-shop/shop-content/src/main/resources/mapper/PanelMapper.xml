@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="shop.content.mapper.PanelMapper">
 
-    <select id="select" resultType="shop.common.pojo.TbPanel">
+    <select id="selectPanel" resultType="shop.common.pojo.TbPanel">
         select * from tb_panel
         <where>
             <if test="tbPanel.id != null">
@@ -16,5 +16,9 @@
             </if>
         </where>
          order by #{order};
+    </select>
+
+    <select id="selectPanelContent" resultType="shop.common.pojo.TbPanelContent">
+        select * from tb_panel_content where panel_id = #{tbPanelContent.panelId} order by #{order};
     </select>
 </mapper>

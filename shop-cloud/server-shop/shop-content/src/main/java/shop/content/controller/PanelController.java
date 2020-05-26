@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import shop.common.pojo.TbPanel;
+import shop.common.pojo.TbPanelContent;
 import shop.content.service.PanelService;
 
 import javax.annotation.Resource;
@@ -33,5 +34,11 @@ public class PanelController {
     @GetMapping("/recommend")
     public List<TbPanel> getRecommendGoods() {
         return panelService.getRecommendGoods();
+    }
+
+    @ApiOperation("导航栏")
+    @GetMapping("/nav")
+    public List<TbPanelContent> getNavList() {
+        return panelService.getNavList();
     }
 }

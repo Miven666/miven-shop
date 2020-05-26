@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 @Data
 @Component
-@ConfigurationProperties(prefix = "goods")
+@ConfigurationProperties(prefix = "shop.content.goods")
 public class GoodsProperties {
     /**
      *商城首页缓存key

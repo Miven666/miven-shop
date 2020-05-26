@@ -9,11 +9,10 @@ import org.springframework.stereotype.Service;
 import shop.common.pojo.TbItem;
 import shop.common.pojo.TbPanel;
 import shop.common.pojo.TbPanelContent;
-import shop.content.mapper.PanelContentMapper;
 import shop.content.mapper.PanelMapper;
 import shop.content.mapper.TbItemMapper;
 import shop.content.properties.GoodsHomeProperties;
-import shop.content.properties.GoodsProperties;
+import shop.content.properties.NavigationProperties;
 import shop.content.properties.RecommendProperties;
 import shop.content.service.PanelService;
 
@@ -31,24 +30,19 @@ import java.util.Optional;
 @Service
 public class PanelServiceImpl implements PanelService {
     private final static Logger logger = LoggerFactory.getLogger(PanelServiceImpl.class);
-
     @Resource
     private GoodsHomeProperties goodsHomeProperties;
-
     @Resource
     private RecommendProperties recommendProperties;
-
+    @Resource
+    private NavigationProperties navigationProperties;
     @Resource
     private JedisClient jedisClient;
-
     @Resource
     private PanelMapper panelMapper;
-
-    @Resource
-    private PanelContentMapper panelContentMapper;
-
     @Resource
     private TbItemMapper tbItemMapper;
+
 
     @Override
     public List<TbPanel> getHome() {
@@ -84,10 +78,28 @@ public class PanelServiceImpl implements PanelService {
         return panels;
     }
 
+    @Override
+    public List<TbPanelContent> getNavList() {
+        List<TbPanelContent> list;
+        // 有缓存则读取
+        Optional<String> json = jedisClient.get(navigationProperties.getKey());
+        if(json.isPresent()) {
+            logger.info("读取了导航栏缓存");
+            return JSONObject.parseArray(json.get(), TbPanelContent.class);
+        }
+        // 条件查询
+        list = panelMapper.selectPanelContent(new TbPanelContent(navigationProperties.getId()), "sort_order");
+        // 把结果添加至缓存
+        jedisClient.set(navigationProperties.getKey(), JSON.toJSONString(list));
+        logger.info("添加了导航栏缓存");
+
+        return list;
+    }
+
     private List<TbPanel> conditionSelect(TbPanel panel) {
-        List<TbPanel> panels = panelMapper.select(panel, "sort_order");
+        List<TbPanel> panels = panelMapper.selectPanel(panel, "sort_order");
         for (TbPanel tbPanel : panels) {
-            List<TbPanelContent> contents = panelContentMapper.select(new TbPanelContent(tbPanel.getId()), "sort_order");
+            List<TbPanelContent> contents = panelMapper.selectPanelContent(new TbPanelContent(tbPanel.getId()), "sort_order");
             for (TbPanelContent content : contents) {
                 if (content.getProductId() != null) {
                     TbItem tbItem = tbItemMapper.selectByIndex(content.getProductId());

@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  */
 @Data
 @Component
-@ConfigurationProperties(prefix = "panel")
+@ConfigurationProperties(prefix = "shop.content.panel")
 public class PanelProperties {
 
     @NestedConfigurationProperty

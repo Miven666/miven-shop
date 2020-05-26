@@ -5,4 +5,16 @@
     <select id="selectByIndex" resultType="shop.common.pojo.TbItem">
         select * from tb_item where id = #{id};
     </select>
+    <select id="selectItemsByPriceRange" resultType="shop.common.pojo.TbItem">
+        SELECT * FROM tb_item WHERE status = 1
+        <if test="priceGt != null and priceGt >= 0 and priceLte != null and priceLte >= 0">
+            AND price BETWEEN #{priceGt} AND #{priceLte}
+        </if>
+        <if test="cid != null">
+            AND cid = #{cid}
+        </if>
+        <if test="sortFeild != null and rule != null">
+            ORDER BY ${sortFeild} ${rule}
+        </if>
+    </select>
 </mapper>

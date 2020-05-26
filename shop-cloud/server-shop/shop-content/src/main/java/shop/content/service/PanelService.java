@@ -1,6 +1,7 @@
 package shop.content.service;
 
 import shop.common.pojo.TbPanel;
+import shop.common.pojo.TbPanelContent;
 
 import java.util.List;
 
@@ -22,4 +23,10 @@ public interface PanelService {
      * @return 推荐
      */
     List<TbPanel> getRecommendGoods();
+
+    /**
+     * 获取导航栏
+     * @return 导航栏
+     */
+    List<TbPanelContent> getNavList();
 }
