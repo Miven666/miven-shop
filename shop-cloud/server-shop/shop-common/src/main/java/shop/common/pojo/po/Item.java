@@ -1,4 +1,4 @@
-package shop.common.pojo;
+package shop.common.pojo.po;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -15,7 +15,7 @@ import java.util.Date;
  */
 @Getter
 @Setter
-public class TbItem implements Serializable {
+public class Item implements Serializable {
     private static final long serialVersionUID = -1013639554934273366L;
     /**
      * 商品id，同时也是商品编号

@@ -2,7 +2,7 @@ package shop.content.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import shop.common.pojo.GoodsSortPage;
-import shop.common.pojo.TbItem;
+import shop.common.pojo.po.Item;
 
 import java.util.List;
 
@@ -14,17 +14,17 @@ import java.util.List;
  */
 
 @Mapper
-public interface TbItemMapper {
+public interface ItemMapper {
 
     /**
      * 根据索引查询商品
      * @param id    板块Id
      * @return      TbItem
      */
-    TbItem selectByIndex(Long id);
+    Item selectByIndex(Long id);
 
     /**
      * 根据价格范围查询商品
      */
-    List<TbItem> selectItemsByPriceRange(GoodsSortPage goods);
+    List<Item> selectItemsByPriceRange(GoodsSortPage goods);
 }

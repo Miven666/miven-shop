@@ -4,10 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
-import shop.common.pojo.DataPages;
-import shop.common.pojo.GoodsSortPage;
-import shop.common.pojo.TbPanel;
-import shop.common.pojo.TbPanelContent;
+import shop.common.pojo.*;
 import shop.front.web.remote.ContentRemote;
 
 import java.util.ArrayList;
@@ -25,28 +22,24 @@ import java.util.List;
 public class ContentHystrix implements ContentRemote {
     private final static Logger logger = LoggerFactory.getLogger(ContentHystrix.class);
 
-    @Nullable
     @Override
     public List<TbPanelContent> getNavList() {
         logger.error("FeignClient shop-content getNavList is error.");
         return new ArrayList<>(0);
     }
 
-    @Nullable
     @Override
     public List<TbPanel> getHome() {
         logger.error("FeignClient shop-content getHome is error.");
         return new ArrayList<>(0);
     }
 
-    @Nullable
     @Override
-    public List<TbPanel> getRecommendGoods() {
+    public List<TbPanel> getGoodsRecommend() {
         logger.error("FeignClient shop-content getRecommendGoods is error.");
         return new ArrayList<>(0);
     }
 
-    @Nullable
     @Override
     public DataPages getGoodsPages(GoodsSortPage goods) {
         logger.error("FeignClient shop-content getGoodsPages is error, Body parameters: {}", goods);
@@ -54,5 +47,12 @@ public class ContentHystrix implements ContentRemote {
         pages.setTotal(0);
         pages.setData(new ArrayList<>(0));
         return pages;
+    }
+
+    @Nullable
+    @Override
+    public GoodsDetails getGoodsDetails(Long productId) {
+        logger.error("FeignClient shop-content getGoodsDetails is error, productId: {}", productId);
+        return null;
     }
 }

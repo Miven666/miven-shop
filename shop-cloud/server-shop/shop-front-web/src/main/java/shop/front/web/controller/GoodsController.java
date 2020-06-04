@@ -24,29 +24,29 @@ public class GoodsController {
     @Resource
     private ContentService contentService;
 
-    @ApiOperation("商品导航栏")
+    @ApiOperation("获取商品导航栏")
     @GetMapping("/goods/navList")
     public Result<List<TbPanelContent>> getNavList() {
         List<TbPanelContent> list = contentService.getNavList();
         return new ResultUtils<List<TbPanelContent>>().setData(list);
     }
 
-    @ApiOperation("商品首页板块")
+    @ApiOperation("获取商品首页板块")
     @GetMapping("/goods/home")
     public Result<List<TbPanel>> getProductHome() {
         List<TbPanel> list = contentService.getHome();
         return new ResultUtils<List<TbPanel>>().setData(list);
     }
 
-    @ApiOperation("商品推荐板块")
+    @ApiOperation("获取商品推荐板块")
     @GetMapping("/goods/recommend")
     public Result<List<TbPanel>> getRecommendGoods() {
-        List<TbPanel> list = contentService.getRecommendGoods();
+        List<TbPanel> list = contentService.getGoodsRecommend();
         return new ResultUtils<List<TbPanel>>().setData(list);
     }
 
-    @ApiOperation(value = "所有商品（分页）")
-    @RequestMapping(value = "/goods/allGoods", method = RequestMethod.GET)
+    @ApiOperation(value = "获取所有商品（分页）")
+    @GetMapping("/goods/allGoods")
     public Result<DataPages> getGoodsPages(
             @RequestParam(defaultValue = "1") int page,
             @RequestParam(defaultValue = "20") int size,
@@ -73,5 +73,12 @@ public class GoodsController {
         }
         DataPages goodsPagesResult = contentService.getGoodsPages(goods);
         return new ResultUtils<DataPages>().setData(goodsPagesResult);
+    }
+
+    @ApiOperation(value = "获取商品详情")
+    @GetMapping("/goods/details")
+    public Result<GoodsDetails> getDetails(@RequestParam Long productId) {
+        GoodsDetails details = contentService.getGoodsDetails(productId);
+        return new ResultUtils<GoodsDetails>().setData(details);
     }
 }

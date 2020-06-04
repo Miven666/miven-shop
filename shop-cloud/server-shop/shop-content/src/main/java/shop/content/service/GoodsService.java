@@ -1,6 +1,7 @@
 package shop.content.service;
 
 import shop.common.pojo.DataPages;
+import shop.common.pojo.GoodsDetails;
 import shop.common.pojo.GoodsSortPage;
 
 /**
@@ -15,4 +16,11 @@ public interface GoodsService {
      * @return 指定分页数的商品
      */
     DataPages getPage(GoodsSortPage goods);
+
+    /**
+     * 获取商品详情
+     * @param productId 商品编号
+     * @return 商品详情
+     */
+    GoodsDetails getDetails(Long productId);
 }

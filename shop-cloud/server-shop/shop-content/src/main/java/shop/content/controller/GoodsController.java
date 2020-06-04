@@ -1,11 +1,9 @@
 package shop.content.controller;
 
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import shop.common.pojo.DataPages;
+import shop.common.pojo.GoodsDetails;
 import shop.common.pojo.GoodsSortPage;
 import shop.content.service.GoodsService;
 
@@ -28,5 +26,11 @@ public class GoodsController {
     @PostMapping("/page")
     public DataPages getPage(@RequestBody GoodsSortPage goods) {
         return goodsService.getPage(goods);
+    }
+
+    @ApiOperation("获取商品详情")
+    @GetMapping("/details")
+    public GoodsDetails getGoodsDetails(@RequestParam Long productId) {
+        return goodsService.getDetails(productId);
     }
 }

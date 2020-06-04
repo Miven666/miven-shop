@@ -3,10 +3,8 @@ package shop.front.web.remote;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import shop.common.pojo.GoodsSortPage;
-import shop.common.pojo.TbPanel;
-import shop.common.pojo.TbPanelContent;
-import shop.common.pojo.DataPages;
+import org.springframework.web.bind.annotation.RequestParam;
+import shop.common.pojo.*;
 import shop.front.web.remote.hystrix.ContentHystrix;
 
 import java.util.List;
@@ -38,11 +36,17 @@ public interface ContentRemote {
      * 获取推荐商品
      */
     @GetMapping("/recommend")
-    List<TbPanel> getRecommendGoods();
+    List<TbPanel> getGoodsRecommend();
 
     /**
      * 获取指定分页数的商品集合
      */
     @PostMapping("/goods/page")
     DataPages getGoodsPages(GoodsSortPage goods);
+
+    /**
+     * 获取商品详情
+     */
+    @GetMapping("/goods/details")
+    GoodsDetails getGoodsDetails(@RequestParam Long productId);
 }

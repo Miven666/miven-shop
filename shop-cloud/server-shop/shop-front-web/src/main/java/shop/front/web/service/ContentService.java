@@ -1,9 +1,6 @@
 package shop.front.web.service;
 
-import shop.common.pojo.GoodsSortPage;
-import shop.common.pojo.TbPanel;
-import shop.common.pojo.TbPanelContent;
-import shop.common.pojo.DataPages;
+import shop.common.pojo.*;
 
 import java.util.List;
 
@@ -28,10 +25,15 @@ public interface ContentService {
     /**
      * 获取推荐商品
      */
-    List<TbPanel> getRecommendGoods();
+    List<TbPanel> getGoodsRecommend();
 
     /**
      * 获取所有商品（分页）
      */
     DataPages getGoodsPages(GoodsSortPage goods);
+
+    /**
+     * 获取商品详情
+     */
+    GoodsDetails getGoodsDetails(Long productId);
 }

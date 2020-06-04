@@ -20,6 +20,21 @@ public interface JedisClient {
 	Optional<String> set(String key, String value);
 
 	/**
+	 * 设置给定 key 的值
+	 * @param key	key
+	 * @param value	value
+	 * @param seconds 过期时间，单位秒
+	 * @return 设置操作成功完成时，才返回OK。
+	 */
+	default Optional<String> set(String key, String value, int seconds) {
+		Optional<String> result = set(key, value);
+		if (result.isPresent()) {
+			expire(key, seconds);
+		}
+		return Optional.empty();
+	}
+
+	/**
 	 * 获取指定 key 的值
 	 * @param key	key
 	 * @return 返回key的值，如果key不存在时，返回nil。如果key不是字符串类型，那么返回一个错误。

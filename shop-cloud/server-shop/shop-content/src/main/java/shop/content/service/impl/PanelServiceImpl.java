@@ -6,11 +6,11 @@ import com.alibaba.fastjson.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import shop.common.pojo.TbItem;
+import shop.common.pojo.po.Item;
 import shop.common.pojo.TbPanel;
 import shop.common.pojo.TbPanelContent;
 import shop.content.mapper.PanelMapper;
-import shop.content.mapper.TbItemMapper;
+import shop.content.mapper.ItemMapper;
 import shop.content.properties.GoodsHomeProperties;
 import shop.content.properties.NavigationProperties;
 import shop.content.properties.RecommendProperties;
@@ -41,7 +41,7 @@ public class PanelServiceImpl implements PanelService {
     @Resource
     private PanelMapper panelMapper;
     @Resource
-    private TbItemMapper tbItemMapper;
+    private ItemMapper itemMapper;
 
 
     @Override
@@ -102,10 +102,10 @@ public class PanelServiceImpl implements PanelService {
             List<TbPanelContent> contents = panelMapper.selectPanelContent(new TbPanelContent(tbPanel.getId()), "sort_order");
             for (TbPanelContent content : contents) {
                 if (content.getProductId() != null) {
-                    TbItem tbItem = tbItemMapper.selectByIndex(content.getProductId());
-                    content.setProductName(tbItem.getTitle());
-                    content.setSalePrice(tbItem.getPrice());
-                    content.setSubTitle(tbItem.getSellPoint());
+                    Item item = itemMapper.selectByIndex(content.getProductId());
+                    content.setProductName(item.getTitle());
+                    content.setSalePrice(item.getPrice());
+                    content.setSubTitle(item.getSellPoint());
                 }
             }
             tbPanel.setPanelContents(contents);

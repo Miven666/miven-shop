@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="shop.content.mapper.TbItemMapper">
+<mapper namespace="shop.content.mapper.ItemMapper">
 
-    <select id="selectByIndex" resultType="shop.common.pojo.TbItem">
+    <select id="selectByIndex" resultType="shop.common.pojo.po.Item">
         select * from tb_item where id = #{id};
     </select>
-    <select id="selectItemsByPriceRange" resultType="shop.common.pojo.TbItem">
+    <select id="selectItemsByPriceRange" resultType="shop.common.pojo.po.Item">
         SELECT * FROM tb_item WHERE status = 1
         <if test="priceGt != null and priceGt >= 0 and priceLte != null and priceLte >= 0">
             AND price BETWEEN #{priceGt} AND #{priceLte}
