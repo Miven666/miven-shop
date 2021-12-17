@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.miven.spring.boot.autoconfigure.logging.LoggingAutoConfiguration,\
+com.miven.spring.boot.autoconfigure.web.servlet.ServletAutoConfiguration
