@@ -6,24 +6,13 @@
     <groupId>miven.java</groupId>
     <artifactId>miven-logging</artifactId>
     <version>1.0</version>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>7</source>
-                    <target>7</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
     <packaging>jar</packaging>
     <name>${project.artifactId} ${project.version}</name>
 
     <properties>
         <miven.version>1.0</miven.version>
     </properties>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
