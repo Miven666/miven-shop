@@ -1,4 +1,4 @@
-package com.miven.learning.redis;
+package com.miven.learning.rest;
 
 import com.miven.learning.LearningLauncher;
 import org.junit.Test;
@@ -12,13 +12,13 @@ import javax.annotation.Resource;
  * @since 1.0
  */
 @SpringBootTest(classes = LearningLauncher.class)
-public class RedisOperationDemoTest extends AbstractJUnit4SpringContextTests {
+public class RestTemplateDemoTest extends AbstractJUnit4SpringContextTests {
 
     @Resource
-    private RedisOperationDemo redisOperationDemo;
+    private RestTemplateDemo restTemplateDemo;
 
     @Test
-    public void executePipelined() {
-        redisOperationDemo.execute();
+    public void retryable() {
+        restTemplateDemo.retryable();
     }
 }
