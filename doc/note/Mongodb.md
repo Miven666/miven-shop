@@ -89,6 +89,10 @@ rm $tmp_file
   -p 27017:27017 \
   -d mongo:latest
   ```
+  
+  ```shell
+  docker run -d -p 27017:27017 --name mongo422 --restart always -v C:\opt\mongo\data\db:/data/db mongo:4.2.2
+  ```
 
 - 进入容器
 
