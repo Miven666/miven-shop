@@ -106,7 +106,10 @@
 - 向上翻动一页`[pageup]`
 
 ### cat
-- 从最后一百行查找ABC`cat xxx.log | tail -n 100 | grep ABC`
+- 从最后100行查找ABC`cat xxx.log | tail -n 100 | grep ABC`
+- 从最后100行查找ABC上下20行`cat xxx.log | tail -n 100 | grep -C ABC`
+- 从最后100行查找ABC前20行`cat xxx.log | tail -n 100 | grep -B 20 ABC`
+- 从最后100行查找ABC后20行`cat xxx.log | tail -n 100 | grep -A 20 ABC`
 - 从头一百行查找DE`cat xxx.log | head -n 100 | grep DE`
 ### free
 - 查看内存使用情况 `free`
