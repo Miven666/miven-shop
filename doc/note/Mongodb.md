@@ -21,6 +21,7 @@ cd /usr/local/mongodb/bin
 - 删除集合指定条件内容 `db.collection_name.remove(<query>,options)`
 - 查看指定列 
   + 查看 id 和 title 列 `db.collection_name.find({}, {id:1,title:1})`
+  + 查看 student 里的 name 列 `db.collection_name.find("student.name":"张三")`
   + 查看所有列除了 `content` `db.collection.find({}, {content:0})`
 
 ### 导出数据
