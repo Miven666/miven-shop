@@ -11,9 +11,12 @@
 winver
 # 清屏
 CLS
-# 开新窗口
+# 打开新窗口
 start
+# 打开系统属性（可配置系统环境变量）
+sysdm.cpl
 ```
+- [设置别名(alias)](https://www.pianshen.com/article/902432495/)
 
 ### 快捷键
 - 打开地址栏 `ctl+F4`
