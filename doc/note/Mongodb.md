@@ -58,8 +58,13 @@ rm $tmp_file
 - 上传至 ftp `put feeder.tar.gz`
 - 远程连接 `mongodb/bin/mongo 10.125.145.104:55944/marketingdb -u m_marketing -p ELkVRIh1KoTQzFkCfM90`
 
-## 集群安装
 
+
+## docker 安装
+### 副本集安装
+- https://www.cnblogs.com/sanduzxcvbnm/p/13937264.html
+
+### 集群安装
  - 拉取镜像 `docker pull mongo`
 
  - 配置 IP 映射
