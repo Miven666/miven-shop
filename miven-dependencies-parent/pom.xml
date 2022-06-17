@@ -24,7 +24,7 @@
 
 
         <commons-lang3.version>3.9</commons-lang3.version>
-        <fastjson.version>1.2.66</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <javax.javaee-api.version>8.0.1</javax.javaee-api.version>
         <javax.persistence-api.version>1.0</javax.persistence-api.version>
         <tk.mapper-base.version>1.1.5</tk.mapper-base.version>
